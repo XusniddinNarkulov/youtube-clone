@@ -20,16 +20,52 @@ const Videos = ({ videos, direction }) => {
       );
 
    return (
+      <div
+         style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px,1fr))",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "1rem",
+            // flexDirection: `${direction || "row"}`,
+         }}
+      >
+         {videos?.map((item, i) => {
+            return (
+               <Box key={i}>
+                  {item.id.channelId && <ChannelCard channelDetail={item} />}
+                  {item.id.videoId && <VideoCard video={item} />}
+               </Box>
+            );
+         })}
+      </div>
+   );
+
+   return (
       <Stack
          direction={direction || "row"}
          flexWrap="wrap"
-         justifyContent="start"
+         justifyContent="center"
          gap={2}
       >
          {videos?.map((item, i) => {
             return (
                <Box key={i}>
-                  {item.id.videoId && <VideoCard video={item} />}
+                  {item.id.videoId && (
+                     <div
+                        style={{
+                           display: "grid",
+                           gridTemplateColumns:
+                              "repeat(auto-fit, minmax(300px,350px))",
+                           justifyContent: "center",
+                           alignItems: "center",
+                           width: "100%",
+                           margin: "0, auto",
+                        }}
+                     >
+                        <VideoCard video={item} />
+                     </div>
+                  )}
                   {item.id.channelId && <ChannelCard channelDetail={item} />}
                </Box>
             );

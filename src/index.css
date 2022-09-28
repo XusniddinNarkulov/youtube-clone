@@ -37,6 +37,7 @@ a {
 .react-player {
    max-height: 60vh !important;
    width: 100% !important;
+   /* margin-bottom: 3%; */
 }
 
 .search-bar {
@@ -81,6 +82,7 @@ a {
 
    .react-player {
       height: 45vh !important;
+      /* margin-bottom: ; */
    }
    .search-bar {
       width: 200px;
@@ -90,4 +92,11 @@ a {
    .search-bar {
       width: 150px;
    }
+}
+
+.card-content {
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
 }

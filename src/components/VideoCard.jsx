@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
+import { decode } from "html-entities";
 
 import {
    demoChannelTitle,
@@ -18,31 +19,33 @@ const VideoCard = ({
    },
 }) => {
    return (
-      <Card sx={{ width: { xs: "100%", sm: "358px", md: "320px" } }}>
+      <Card
+         sx={
+            {
+               // width: { xs: "100%", sm: "358px", md: "320px" }
+            }
+         }
+      >
          <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
             <CardMedia
                image={snippet?.thumbnails?.high?.url}
                alt={snippet?.title}
                sx={{
-                  width: { xs: "100%", sm: "358px", md: "320px" },
+                  // width: { xs: "100%", sm: "358px", md: "320px" },
                   height: 180,
                }}
             />
          </Link>
 
-         <CardContent sx={{ backgroundColor: "#1e1e1e", height: "50px" }}>
+         <CardContent sx={{ backgroundColor: "#1e1e1e", marginBottom: "-3%" }}>
             <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
                <Typography
                   variant="subtitle2"
                   fontWeight="bold"
                   color="white"
-                  // sx={{
-                  //    textOverflow: "ellipsis",
-                  //    whiteSpace: "nowrap",
-                  //    overFlow: "hidden",
-                  // }}
+                  className="card-content"
                >
-                  {snippet?.title.slice(0, 60) || demoVideoTitle.slice(0, 60)}
+                  {decode(snippet?.title) || demoVideoTitle}
                </Typography>
             </Link>
 

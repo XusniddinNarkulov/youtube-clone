@@ -36,7 +36,7 @@ const VideoDetail = () => {
    return (
       <Box minHeight="95vh">
          <Stack direction={{ xs: "column", md: "row" }}>
-            <Box flex={1}>
+            <Box width={{ md: "130%", xl: "100%" }}>
                <Box
                   sx={{
                      width: "100%",
@@ -55,6 +55,7 @@ const VideoDetail = () => {
                      variant="h5"
                      fontWeight="bold"
                      p={2}
+                     // marginTop={{ sm: "-5%"}}
                   >
                      {title}
                   </Typography>
@@ -102,6 +103,7 @@ const VideoDetail = () => {
                py={{ md: 1, xs: 5 }}
                justifyContent="center"
                alignItems="center"
+               overflow="scroll"
             >
                <Videos videos={videos} direction="column" />
             </Box>
